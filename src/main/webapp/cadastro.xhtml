@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:decorate template="/layout/padrao.xhtml">
+	<ui:define name="conteudo">
+
+
+		<h3>Informações do anúncio</h3>
+
+		<h:panelGrid columns="2">
+
+
+			<h:outputText value="Titulo:"></h:outputText>
+		
+			
+			<p:inputText value="#{cadastro.dto.data}"></p:inputText>
+			
+
+
+			<h:outputText value="Descrição:"></h:outputText>
+			<p:inputTextarea rows="6" cols="33" />
+
+
+
+			<p:outputLabel for="console" value="Estado:" />
+			<p:selectOneMenu id="console" value="#{selectOneMenuView.console}"
+				style="width:125px">
+
+			</p:selectOneMenu>
+
+			<p:outputLabel for="console" value="Região:" />
+			<p:selectOneMenu id="conso" value="#{selectOneMenuView.console}"
+				style="width:125px">
+
+			</p:selectOneMenu>
+
+
+			<h3>Suas informações</h3>
+			
+			<p:outputLabel for="sou" value="Eu sou:" />
+				<p:selectOneRadio id="sou" value="#{alunoBean.aluno.sexo}"
+				style="width:125px">
+					
+				</p:selectOneRadio>
+		</h:panelGrid>
+
+
+
+
+
+
+	</ui:define>
+</ui:decorate>
+</html>
