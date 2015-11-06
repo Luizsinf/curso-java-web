@@ -1,52 +1,90 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:decorate template="/layout/padrao.xhtml">
 	<ui:define name="conteudo">
 
 
 		<h3>Informações do anúncio</h3>
+		<h:form>
+			<p:growl />
 
-		<h:panelGrid columns="2">
-
-
-			<h:outputText value="Titulo:"></h:outputText>
-		
-			
-			<p:inputText value="#{cadastro.dto.data}"></p:inputText>
-			
-
-
-			<h:outputText value="Descrição:"></h:outputText>
-			<p:inputTextarea rows="6" cols="33" />
+			<h:panelGrid columns="2">
 
 
 
-			<p:outputLabel for="console" value="Estado:" />
-			<p:selectOneMenu id="console" value="#{selectOneMenuView.console}"
-				style="width:125px">
+				<p:outputLabel value="Título" for="titulo" />
+				<p:inputText id="titulo" required="true" 
+				value="#{cadastro.anuncio.titulo}"/>
 
-			</p:selectOneMenu>
+				<p:outputLabel value="Descrição" for="descricao" />
+				<p:inputTextarea id="descricao" required="true"
+				value="#{cadastro.anuncio.descricao}" cols="40" rows="4" 
+				outoResize="true" 
+				maxlength="160" 
+				counter="contador"
+				counterTemplate="Restam {0} caracteres"/>
+				<br/>
+				<h:outputText id="contador"/>
+				
 
-			<p:outputLabel for="console" value="Região:" />
-			<p:selectOneMenu id="conso" value="#{selectOneMenuView.console}"
-				style="width:125px">
+				<p:outputLabel value="CEP" for="cep" />
+				<p:inputText id="cep" required="true" 
+				value="#{cadastro.anuncio.cep}"/>
 
-			</p:selectOneMenu>
+				<p:outputLabel value="Estado" for="est" />
+				<p:inputText id="est" required="true"
+				 value="#{cadastro.anuncio.est}"/>
 
+				<p:outputLabel for="console" value="Região:" />
+				<p:selectOneMenu id="console" 
+					style="width:125px">
 
-			<h3>Suas informações</h3>
-			
-			<p:outputLabel for="sou" value="Eu sou:" />
-				<p:selectOneRadio id="sou" value="#{alunoBean.aluno.sexo}"
-				style="width:125px">
-					
+				</p:selectOneMenu>
+				
+
+				<p:outputLabel for="sou" value="Eu sou:" />
+				<p:selectOneRadio value="#{cadastro.anuncio.sou}" id="sou" required="true">
+					<f:selectItem itemLabel="Particular" itemValue="P"/>
+					<f:selectItem itemLabel="Profissional" itemValue="PF"/>
+
 				</p:selectOneRadio>
-		</h:panelGrid>
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" required="true" 
+				value="#{cadastro.anuncio.nome}"/>
+
+				<p:outputLabel value="E-mail" for="email" />
+				<p:inputText id="email" required="true" 
+				value="#{cadastro.anuncio.email}"/>
+
+				<p:outputLabel value="Telefone" for="telefone" />
+				<p:inputMask id="telefone" required="true"
+				value="#{cadastro.anuncio.telefone}" mask="(99)-9999-9999" />
+
+				<p:outputLabel value="Senha" for="senha" />
+				<p:password id="senha" required="true"
+				value="#{cadastro.anuncio.senha}" feedback="true" 
+				weakLabel="Fraca"
+				goodLabel="Boa" 
+				strongLabel="Forte" promptLabel="Informe uma senha" 
+				inline="true" match="confirmacaoSenha"/>
+				<p:outputLabel value="Confirme a senha" for="confirmacaoSenha" />
+				<p:password id="confirmacaoSenha" required="true"/>
+
+				<f:facet name="footer">
+					<p:commandButton value="Cadastrar" ajax="false" icon="ui-icon-disk"
+					
+					action="#{cadastro.cadastrar}" />
+				</f:facet>
 
 
+			</h:panelGrid>
+
+		</h:form>
 
 
 

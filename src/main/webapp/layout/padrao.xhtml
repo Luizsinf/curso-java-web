@@ -9,17 +9,22 @@
         <title>Treinamento Java WEB</title>
         <style type="text/css">
 .clear-border {
-	border: 0px;
+	border: 10px;
+	
 }
 
 .topo {
+
 	-webkit-box-shadow: 0px 1px 0px 0px rgba(159, 172, 183, 0.7);
 	-moz-box-shadow: 0px 1px 0px 0px rgba(159, 172, 183, 0.7);
 	box-shadow: 0px 1px 0px 0px rgba(159, 172, 183, 0.7);
+	
 }
 
 body {
   margin: 0px;
+  
+  
 }
 </style> 
     </h:head>
@@ -32,12 +37,13 @@ body {
                 <p:layoutUnit position="west" size="220" styleClass="clear-border">  
                     <ui:insert name="menu">
                         <h:form>
-                            <p:menu style="width: 195px; border:0px;">
-                                <p:submenu label="Menu">
+                            <p:menubar style="width: 195px; border:0px;">
+                                <p:submenu label="Perfil">
                                     <p:menuitem value="Login" icon="ui-icon-key" />
                                     <p:menuitem value="Fazer meu cadastro" icon="ui-icon-contact" outcome="cadastro" />         
                                 </p:submenu>
-                            </p:menu>
+                                 <p:menuitem value="Sair" url="/j_spring_security_logout" />
+                            </p:menubar>
                         </h:form>
                     </ui:insert>
                 </p:layoutUnit>  
