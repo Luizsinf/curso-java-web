@@ -18,11 +18,23 @@
 
 				<p:outputLabel value="Título" for="titulo" />
 				<p:inputText id="titulo" required="true" 
-				value="#{cadastro.anuncio.titulo}"/>
+				 value="#{cadastroController.dto.anuncio.titulo}" maxlength="45" />
+	            
+	           <!--  <h:outputText value="UF:" />
+	            <p:selectOneMenu value="#{cadastroController.dto.anuncio.uf}">
+	            	<f:selectItems value="#{cadastroController.ufs}" var="uf" itemValue="#{uf.sigla}" itemLabel="#{uf.nome}"></f:selectItems>
+	            </p:selectOneMenu>
+	             -->
+	           <!--  <h:outputText value="Categoria:" />
+	            <p:selectOneMenu value="#{cadastroController.dto.anuncio.categoria}" converter="categoriaConverter">
+	            	<f:selectItems value="#{cadastroController.categorias}" var="cat" itemValue="#{cat}" itemLabel="#{cat.nome}"></f:selectItems>
+	            </p:selectOneMenu> -->
+	            
 
+				
 				<p:outputLabel value="Descrição" for="descricao" />
 				<p:inputTextarea id="descricao" required="true"
-				value="#{cadastro.anuncio.descricao}" cols="40" rows="4" 
+				value="#{cadastroController.dto.anuncio.descricao}" cols="40" rows="4" 
 				outoResize="true" 
 				maxlength="160" 
 				counter="contador"
